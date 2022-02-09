@@ -9,13 +9,9 @@
 
 		<Searchbar :searchBy="searchBy" @search="search" />
 
-		<Searchby @setSearchBy="setSearchBy"/>
+		<Searchby @setSearchBy="setSearchBy" />
 
-		<transition-group
-			v-if="countries"
-			name="flip-list"
-			tag="article"
-		>
+		<transition-group v-if="countries" name="flip-list" tag="article">
 			<CountryCard
 				v-for="country in countries"
 				:key="country.name"
@@ -63,9 +59,7 @@ export default {
 		search(field) {
 			if (field) {
 				axios
-					.get(
-						`https://restcountries.com/v2/${this.searchBy}/${field}`
-					)
+					.get(`https://restcountries.com/v2/${this.searchBy}/${field}`)
 					.then(response => {
 						this.countries = response.data
 					})

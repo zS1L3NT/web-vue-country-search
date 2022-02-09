@@ -29,7 +29,7 @@ export default {
 	},
 	methods: {
 		emitSearch() {
-			this.$emit('search', this.value)
+			this.$emit("search", this.value)
 		}
 	}
 }

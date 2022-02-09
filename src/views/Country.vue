@@ -9,12 +9,7 @@
 
 			<transition name="fade" mode="out-in">
 				<h1 v-if="country.name" class="name">{{ country.name }}</h1>
-				<Skeleton
-					v-else
-					style="margin: auto 2rem"
-					width="300px"
-					height="40px"
-				/>
+				<Skeleton v-else style="margin: auto 2rem" width="300px" height="40px" />
 			</transition>
 		</article>
 		<article class="lower">
@@ -22,39 +17,21 @@
 				property="Alpha Code"
 				:value="country.alpha3Code || country.alpha2Code"
 			/>
-			<CountryDetail
-				property="Calling Code"
-				:value="country.callingCodes.join('<br>')"
-			/>
+			<CountryDetail property="Calling Code" :value="country.callingCodes.join('<br>')" />
 			<CountryDetail property="Capital" :value="country.capital" />
 			<CountryDetail property="Population" :value="country.population" />
-			<CountryDetail
-				property="Timezones"
-				:value="country.timezones.join('<br>')"
-			/>
+			<CountryDetail property="Timezones" :value="country.timezones.join('<br>')" />
 			<CountryDetail
 				property="Currencies"
-				:value="
-					country.currencies
-						.map(c => `${c.name} (${c.symbol})`)
-						.join('<br>')
-				"
+				:value="country.currencies.map(c => `${c.name} (${c.symbol})`).join('<br>')"
 			/>
 			<CountryDetail
 				property="Languages"
-				:value="
-					country.languages
-						.map(l => `${l.name} -> ${l.nativeName}`)
-						.join('<br>')
-				"
+				:value="country.languages.map(l => `${l.name} -> ${l.nativeName}`).join('<br>')"
 			/>
 			<CountryDetail
 				property="Regional Blocs"
-				:value="
-					country.regionalBlocs
-						.map(rb => `${rb.name} (${rb.acronym})`)
-						.join('<br>')
-				"
+				:value="country.regionalBlocs.map(rb => `${rb.name} (${rb.acronym})`).join('<br>')"
 			/>
 		</article>
 	</div>
@@ -75,9 +52,7 @@ export default {
 	},
 	beforeCreate() {
 		axios
-			.get(
-				`https://restcountries.com/v2/name${this.$route.path}?fullText=true`
-			)
+			.get(`https://restcountries.com/v2/name${this.$route.path}?fullText=true`)
 			.then(response => {
 				this.country = response.data[0]
 			})

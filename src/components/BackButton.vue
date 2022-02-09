@@ -21,7 +21,7 @@ export default {
 	transition: transform 0.3s;
 }
 .back-button:hover {
-	transform: scale(1.1)
+	transform: scale(1.1);
 }
 .back-button i {
 	margin-right: 0.5rem;

@@ -4,7 +4,7 @@
 			{{ property }}
 		</p>
 		<transition name="fade" mode="out-in">
-			<Skeleton class="value-skeleton" v-if="!value"  />
+			<Skeleton class="value-skeleton" v-if="!value"/>
 			<p v-else class="value" v-html="value"></p
 		></transition>
 	</div>
