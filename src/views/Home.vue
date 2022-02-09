@@ -64,7 +64,7 @@ export default {
 			if (field) {
 				axios
 					.get(
-						`https://restcountries.eu/rest/v2/${this.searchBy}/${field}`
+						`https://restcountries.com/v2/${this.searchBy}/${field}`
 					)
 					.then(response => {
 						this.countries = response.data
@@ -74,7 +74,7 @@ export default {
 					})
 			} else {
 				axios
-					.get(`https://restcountries.eu/rest/v2/all`)
+					.get(`https://restcountries.com/v2/all`)
 					.then(response => {
 						this.countries = response.data
 					})

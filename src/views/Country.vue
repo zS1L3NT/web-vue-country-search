@@ -76,7 +76,7 @@ export default {
 	beforeCreate() {
 		axios
 			.get(
-				`https://restcountries.eu/rest/v2/name${this.$route.path}?fullText=true`
+				`https://restcountries.com/v2/name${this.$route.path}?fullText=true`
 			)
 			.then(response => {
 				this.country = response.data[0]
